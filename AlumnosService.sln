@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker-compose", "docker-compose", "{38062B10-8E38-42A2-B089-42731F729B24}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose\base.yml = docker-compose\base.yml
+		docker-compose\development.yml = docker-compose\development.yml
+		docker-compose\production.yml = docker-compose\production.yml
+		docker-compose\staging.yml = docker-compose\staging.yml
+		docker-compose\testing.yml = docker-compose\testing.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gitlab-ci", "gitlab-ci", "{9665ACCF-3B55-433C-9C35-28D44C0B7E8C}"
+	ProjectSection(SolutionItems) = preProject
+		.gitlab-ci.yml = .gitlab-ci.yml
+		gitlab-ci\containerize.yml = gitlab-ci\containerize.yml
+		gitlab-ci\deployment.yml = gitlab-ci\deployment.yml
+		gitlab-ci\release.yml = gitlab-ci\release.yml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlumnosService.API", "src\AlumnosService.Api\AlumnosService.API.csproj", "{0572012B-197E-4F16-A761-B038CF39962B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlumnosService.Application", "src\AlumnosService.Application\AlumnosService.Application.csproj", "{5044A1B2-D91B-4188-9573-6FA27E36B509}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlumnosService.Domain", "src\AlumnosService.Domain\AlumnosService.Domain.csproj", "{C09416CB-BACE-4199-ABBD-62043542D47E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{985EE11D-3B83-4879-B144-6ABE53B6E785}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6C07DDDA-4119-492D-8DC4-1B5AAB6D4159}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Api", "Api", "{9AE5F8A0-11B3-40E9-9E55-AF7B085C566D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Inftastructure", "Inftastructure", "{5518BCD0-356A-417F-8DD4-5A6B243A6AD2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{5FCF244D-A19F-43F4-94DC-B3DD21B61210}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlumnosService.Persistence", "src\AlumnosService.Persistence\AlumnosService.Persistence.csproj", "{723C2222-F5B2-428A-9D4C-FB1B3BCF0DEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0572012B-197E-4F16-A761-B038CF39962B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0572012B-197E-4F16-A761-B038CF39962B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0572012B-197E-4F16-A761-B038CF39962B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0572012B-197E-4F16-A761-B038CF39962B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5044A1B2-D91B-4188-9573-6FA27E36B509}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5044A1B2-D91B-4188-9573-6FA27E36B509}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5044A1B2-D91B-4188-9573-6FA27E36B509}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5044A1B2-D91B-4188-9573-6FA27E36B509}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C09416CB-BACE-4199-ABBD-62043542D47E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C09416CB-BACE-4199-ABBD-62043542D47E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C09416CB-BACE-4199-ABBD-62043542D47E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C09416CB-BACE-4199-ABBD-62043542D47E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{723C2222-F5B2-428A-9D4C-FB1B3BCF0DEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{723C2222-F5B2-428A-9D4C-FB1B3BCF0DEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{723C2222-F5B2-428A-9D4C-FB1B3BCF0DEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{723C2222-F5B2-428A-9D4C-FB1B3BCF0DEC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{38062B10-8E38-42A2-B089-42731F729B24} = {985EE11D-3B83-4879-B144-6ABE53B6E785}
+		{9665ACCF-3B55-433C-9C35-28D44C0B7E8C} = {985EE11D-3B83-4879-B144-6ABE53B6E785}
+		{0572012B-197E-4F16-A761-B038CF39962B} = {9AE5F8A0-11B3-40E9-9E55-AF7B085C566D}
+		{5044A1B2-D91B-4188-9573-6FA27E36B509} = {5FCF244D-A19F-43F4-94DC-B3DD21B61210}
+		{C09416CB-BACE-4199-ABBD-62043542D47E} = {5FCF244D-A19F-43F4-94DC-B3DD21B61210}
+		{9AE5F8A0-11B3-40E9-9E55-AF7B085C566D} = {6C07DDDA-4119-492D-8DC4-1B5AAB6D4159}
+		{5518BCD0-356A-417F-8DD4-5A6B243A6AD2} = {6C07DDDA-4119-492D-8DC4-1B5AAB6D4159}
+		{5FCF244D-A19F-43F4-94DC-B3DD21B61210} = {6C07DDDA-4119-492D-8DC4-1B5AAB6D4159}
+		{723C2222-F5B2-428A-9D4C-FB1B3BCF0DEC} = {5518BCD0-356A-417F-8DD4-5A6B243A6AD2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C98E771F-71EA-4A2B-9EB9-D59D8BDEB560}
+	EndGlobalSection
+EndGlobal

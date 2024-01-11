@@ -1,0 +1,39 @@
+docker-build-prod-image:
+  stage: deployProduction
+  tags:
+    - staging-env
+  needs:
+    - job: build
+
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: manual
+  before_script:
+    - IMAGE_NAME=$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG
+    - echo $CI_DEPLOY_PASSWORD | docker login -u  $CI_REGISTRY_USER  --password-stdin $CI_REGISTRY
+  script:
+    - echo "Building latest image $IMAGE_NAME"  
+    - docker build --pull  -t $IMAGE_NAME -f ./$PROJECT_FOLDER/Dockerfile .
+    - echo "Pushing image"
+    - docker push $IMAGE_NAME
+  after_script:
+    - docker logout
+
+
+deploy-production:
+  stage: deployProduction
+  tags:
+      - contenedoresprod
+  needs:
+    - job: docker-build-prod-image
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: manual
+  before_script:
+    - echo $CI_DEPLOY_PASSWORD | docker login -u  $CI_REGISTRY_USER  --password-stdin $CI_REGISTRY
+  script:
+    - echo "creating production service in stack $STACK_NAME "
+    - if [ "$IMAGE_TAG" != "" ]; then IMAGE_NAME="$CI_REGISTRY_IMAGE:$IMAGE_TAG"; else IMAGE_NAME="$CI_REGISTRY_IMAGE:$CI_COMMIT_TAG"; fi
+    - docker stack deploy --with-registry-auth  -c docker-compose/base.yml -c docker-compose/production.yml $STACK_NAME
+  after_script:
+    - docker logout

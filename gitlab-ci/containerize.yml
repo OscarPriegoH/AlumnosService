@@ -1,0 +1,19 @@
+docker-build-image:
+  stage: containerizeImage
+  tags:
+    - development-env
+  needs: ["build"]
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^release/
+
+  before_script:
+    - IMAGE_NAME=$CI_REGISTRY_IMAGE:$( echo "$CI_COMMIT_BRANCH" | cut -d'/' -f 2 )  
+    - echo $CI_DEPLOY_PASSWORD | docker login -u  $CI_REGISTRY_USER  --password-stdin $CI_REGISTRY
+  script:
+    - echo "Building image $IMAGE_NAME"  
+    - docker build --pull  -t $IMAGE_NAME -f ./$PROJECT_FOLDER/Dockerfile .
+    - echo "Pushing image"
+    - docker push $IMAGE_NAME
+  
+  after_script:
+    - docker logout

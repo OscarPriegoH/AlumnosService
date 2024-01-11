@@ -1,0 +1,25 @@
+variables:
+  STACK_NAME: AlumnosService
+  PROJECT_FOLDER: src/AlumnosService.API
+  IMAGE_NAME: ""
+
+stages:
+  - build
+  - containerizeImage
+  - deployment
+  - imageRetaging
+  - deployProduction
+
+build:
+  stage: build
+  script:
+    - dotnet restore --no-cache --force ./$PROJECT_FOLDER/
+    - dotnet build -c Release --no-restore ./$PROJECT_FOLDER/
+  tags:
+    - dev-docker-net
+
+include:
+  - local: '/gitlab-ci/containerize.yml'
+  - local: '/gitlab-ci/deployment.yml'
+  - local: '/gitlab-ci/release.yml'
+  

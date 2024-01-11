@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  AlumnosService:
+    image: $IMAGE_NAME
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Testing"
+    deploy:
+      labels:
+        traefik.http.routers.AlumnosService.rule: Host(`AlumnosService.apymsa-testsvr.apymsa.com.mx`)
+        traefik.http.routers.AlumnosService.entrypoints: http
+        traefik.http.services.AlumnosService.loadbalancer.server.port: 80
